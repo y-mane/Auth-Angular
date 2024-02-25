@@ -20,6 +20,13 @@
       "lastName": "Ib",
       "email": "ib@ff.com",
       "password": "aaaa"
+    },
+    {
+      "id": "d767",
+      "firstName": "Koffi",
+      "lastName": "Jean",
+      "email": "keita.souleyman225@gmail.com",
+      "password": "wwww"
     }
   ]
 }

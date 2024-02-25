@@ -88,6 +88,12 @@
         >
           <div *ngIf="confirmPassword.errors?.['required']">Please confirm your password</div>
         </small>
+        <small
+          class="block p-error"
+          *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid"
+        >
+          Password should match
+        </small >
       </div>
       <p-button label="REGISTER" styleClass="w-full" [disabled]="registerForm.invalid" ></p-button>
       <div class="mt-2">

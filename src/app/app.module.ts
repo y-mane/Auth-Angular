@@ -11,6 +11,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import {ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import { ButtonModule } from 'primeng/button';
+import {HttpClientModule} from "@angular/common/http";
+import { ToastModule } from 'primeng/toast';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -27,8 +31,11 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     InputTextModule,
     ButtonModule,
+    HttpClientModule,
+    ToastModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

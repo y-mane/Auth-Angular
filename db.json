@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "bd79",
+      "firstName": "Keita s",
+      "lastName": "Souleymane s",
+      "email": "bigsolo225@gmail.com",
+      "password": "aaaa"
+    },
+    {
+      "id": "57f8",
+      "firstName": "Keita",
+      "lastName": "ymane",
+      "email": "keita.souleyman225@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "3c67",
+      "firstName": "Kone",
+      "lastName": "Ib",
+      "email": "ib@ff.com",
+      "password": "aaaa"
+    }
+  ]
+}

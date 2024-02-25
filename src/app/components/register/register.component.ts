@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {passWordMatchValidator} from "../../shared/password-match.directive";
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../interfaces/auth";
+import {MessageService} from "primeng/api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [MessageService],
 })
 export class RegisterComponent {
   registerForm = this.fb.group({
@@ -19,8 +24,12 @@ export class RegisterComponent {
     }
   );
 
-    constructor(private fb:FormBuilder) {
-    }
+    constructor(
+      private fb:FormBuilder,
+      private authService: AuthService,
+      private messageService: MessageService,
+      private router: Router,
+    ) {}
 
     get firstName(){
     return this.registerForm.controls['firstName'];
@@ -36,5 +45,21 @@ export class RegisterComponent {
   }
   get confirmPassword(){
     return this.registerForm.controls['confirmPassword'];
+  }
+
+  submitDetails() {
+    const postData = { ...this.registerForm.value };
+    delete postData.confirmPassword;
+    this.authService.registerUsers(postData as User).subscribe(
+      response => {
+        console.log(response);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register successfully!' });
+        this.router.navigate(['login']);
+      },
+      error => {
+        console.log(error);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      }
+    );
   }
 }
